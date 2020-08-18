@@ -8,5 +8,5 @@ ReactDOM.render(
   app,
   () => {
     console.log('Application rendered!');
-  }
+  },
 );

@@ -2,11 +2,11 @@ const express = require('express');
 const Sequelize = require('sequelize');
 const chalk = require('chalk');
 const path = require('path');
+
 const PORT = process.env.PORT || 3000;
 const DB_URL = process.env.DATABASE_URL || 'postgres://localhost:5432/hacktails';
 const PUBLIC_PATH = path.join(__dirname, '../public');
 const DIST_PATH = path.join(__dirname, '../dist');
-
 
 const app = express();
 
@@ -21,7 +21,7 @@ const db = new Sequelize(DB_URL, {
   logging: false,
 });
 
-const sync = async() => {
+const sync = async () => {
   try {
     await db.sync();
 
@@ -32,7 +32,7 @@ const sync = async() => {
 
     throw e;
   }
-}
+};
 
 app.use(express.static(PUBLIC_PATH));
 app.use(express.static(DIST_PATH));
@@ -48,6 +48,6 @@ const startApplication = async () => {
 
     throw e;
   }
-}
+};
 
 startApplication();
