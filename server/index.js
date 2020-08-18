@@ -50,4 +50,6 @@ const startApplication = async () => {
   }
 };
 
+//  TODO: delete this comment
+
 startApplication();
